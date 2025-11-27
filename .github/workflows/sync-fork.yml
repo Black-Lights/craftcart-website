@@ -23,6 +23,6 @@ jobs:
         env:
           SYNC_TOKEN: ${{ secrets.SYNC_TOKEN }}
         run: |
-          git remote add deployment https://x-access-token:${SYNC_TOKEN}@github.com/AliRehman7065/craftcart-website.git
+          git remote add deployment https://${SYNC_TOKEN}@github.com/AliRehman7065/craftcart-website.git
           git push deployment main:main --force
 
