@@ -14,9 +14,15 @@ jobs:
         with:
           fetch-depth: 0  # Fetch all history for proper syncing
 
+      - name: Set up Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
       - name: Push to deployment repository
         env:
           SYNC_TOKEN: ${{ secrets.SYNC_TOKEN }}
         run: |
           git remote add deployment https://x-access-token:${SYNC_TOKEN}@github.com/AliRehman7065/craftcart-website.git
           git push deployment main:main --force
+
